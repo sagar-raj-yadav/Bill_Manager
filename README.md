@@ -1,3 +1,5 @@
+https://billlmanager.netlify.app/
+
 # Car Wash Bill Manager
 A React application to help Adithya manage his monthly bills. The application allows users to add, edit, remove, and filter bills by category. It also calculates and highlights the minimum set of bills that should be paid without exceeding a monthly budget. Additionally, it provides a time-series chart of the monthly billing cycle.
 
