@@ -28,24 +28,27 @@ const BillList = () => {
         <option value="Travel">Travel</option>
       </select>
       <ul>
-        {filteredBills.map((bill) => (
-          <li key={bill.id} className="bill-item">
-            {editData?.id === bill.id ? (
-              <>
-                <input type="text" value={editData.description} onChange={(e) => setEditData({ ...editData, description: e.target.value })} />
-                <input type="number" value={editData.amount} onChange={(e) => setEditData({ ...editData, amount: e.target.value })} />
-                <button onClick={handleUpdate}>Save</button>
-              </>
-            ) : (
-              <>
-                <span>{bill.description} - {bill.amount} - {bill.category}</span>
-                <button onClick={() => handleEdit(bill)}>Edit</button>
-                <button onClick={() => handleDelete(bill.id)}>Delete</button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
+  {filteredBills.map((bill) => (
+    <li key={bill.id} className="bill-item">
+      {editData?.id === bill.id ? (
+        <>
+          <input type="text" value={editData.description} onChange={(e) => setEditData({ ...editData, description: e.target.value })} />
+          <input type="number" value={editData.amount} onChange={(e) => setEditData({ ...editData, amount: e.target.value })} />
+          <button onClick={handleUpdate}>Save</button>
+        </>
+      ) : (
+        <>
+          <span className="bill-details">{bill.description} - ₹{bill.amount} - {bill.category}</span>
+          <div className="bill-actions">
+            <button onClick={() => handleEdit(bill)}>Edit</button>
+            <button className="delete-btn" onClick={() => handleDelete(bill.id)}>Delete</button>
+          </div>
+        </>
+      )}
+    </li>
+  ))}
+</ul>
+
     </div>
   );
 };
